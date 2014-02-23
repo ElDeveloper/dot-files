@@ -1,0 +1,17 @@
+[user]
+	name = Yoshiki Vázquez Baeza
+	email = yoshiki89@gmail.com
+[log]
+	decorate = full
+[color]
+	ui = true
+[core]
+	excludesfile = /Users/yoshikivazquezbaeza/.gitignore_global
+    editor = vim
+	autocrlf = input
+[merge]
+	tool = opendiff
+[merge "tool.opendiff"]
+	cmd = opendiff \"$REMOTE\" \"$LOCAL\" -merge \"$MERGED\"
+[help]
+	autocorrect = 11

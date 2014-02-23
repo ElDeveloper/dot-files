@@ -1,0 +1,24 @@
+# qiime_config
+# WARNING: DO NOT EDIT OR DELETE Qiime/qiime_config
+# To overwrite defaults, copy this file to $HOME/.qiime_config or a full path
+# specified by $QIIME_CONFIG_FP and edit that copy of the file.
+
+cluster_jobs_fp /Users/yoshikivazquezbaeza/git_sw/qiime/scripts/start_parallel_jobs.py
+python_exe_fp	python
+working_dir
+blastmat_dir
+blastall_fp	blastall
+pynast_template_alignment_fp /Users/yoshikivazquezbaeza/svn_sw/dep/gg_otus_4feb2011/rep_set/gg_97_otus_4feb2011_aligned.fasta
+pynast_template_alignment_blastdb
+template_alignment_lanemask_fp	/Users/yoshikivazquezbaeza/svn_sw/dep/lanemask_in_1s_and_0s
+jobs_to_start	1
+seconds_to_sleep	60
+qiime_scripts_dir   /Users/yoshikivazquezbaeza/git_sw/qiime/scripts/
+temp_dir	/tmp/
+denoiser_min_per_core	50
+cloud_environment	False
+topiaryexplorer_project_dir
+torque_queue	friendlyq
+assign_taxonomy_reference_seqs_fp   /Users/yoshikivazquezbaeza/svn_sw/dep/gg_13_5_otus/taxonomy/97_otu_taxonomy.txt
+assign_taxonomy_id_to_taxonomy_fp
+#qiime_test_data_dir /Users/yoshikivazquezbaeza/git_sw/qiime/qiime_test_data/
