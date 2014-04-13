@@ -15,3 +15,8 @@
 	cmd = opendiff \"$REMOTE\" \"$LOCAL\" -merge \"$MERGED\"
 [help]
 	autocorrect = 11
+[alias]
+	s = status -su
+	lol = log --graph --oneline --decorate --all
+[push]
+	default = simple

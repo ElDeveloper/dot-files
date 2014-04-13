@@ -10,59 +10,6 @@ export PATH='/usr/local/git/bin/':${PATH}
 # Setting PATH for Python 2.7.1
 # The original version is saved in ~/.bash_profile.pysave
 export PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
-# # QIIME PATH for the scripts and PYTHONPATH for the libraries of the dev version
-# export PATH=/Users/yoshikivazquezbaeza/git_sw/qiime/scripts:$PATH
-# export PYTHONPATH=/Users/yoshikivazquezbaeza/git_sw/qiime:$PYTHONPATH
-# QIIME DB PYTHONPATH
-# export PYTHONPATH=/Users/yoshikivazquezbaeza/git_sw/qiime_web_app/python_code:$PYTHONPATH
-# This compiled version of matplotlib comes from satan's vagina
-#export PYTHONPATH=/Users/yoshikivazquezbaeza/git_sw/matplotlib/build/lib.macosx-10.6-intel-2.7/:$PYTHONPATH
-# QIIME PATH and PYTHONPATH for the backup of the development version 
-#export PATH=/Users/yoshikivazquezbaeza/svn_sw/bk_qiime/scripts/:$PATH
-#export PYTHONPATH=/Users/yoshikivazquezbaeza/svn_sw/bk_qiime/:$PYTHONPATH
-# QIIME PATH for the scripts and PYTHONPATH for the libraries of verison 1.4.0
-#export PATH=/Users/yoshikivazquezbaeza/svn_sw/qiime1.4.0/scripts/:$PATH
-#export PYTHONPATH=/Users/yoshikivazquezbaeza/svn_sw/qiime1.4.0/:$PYTHONPATH
-# PyNAST PATH for the scripts and PYTHONPATH for the libraries of the dev version
-# export PATH=/Users/yoshikivazquezbaeza/git_sw/pynast/scripts/:$PATH
-# export PYTHONPATH=/Users/yoshikivazquezbaeza/git_sw/pynast/:$PYTHONPATH
-
-# export PATH=/Users/yoshikivazquezbaeza/git_sw/qcli/scripts/:${PATH}
-# export PYTHONPATH=/Users/yoshikivazquezbaeza/git_sw/qcli/:${PYTHONPATH}
-# PyCogent libraries added to the PYTHONPATH
-# export PYTHONPATH=/Users/yoshikivazquezbaeza/svn_sw/PyCogent:$PYTHONPATH
-# BIOM format PATH for the scripts and PYTHONPATH for the libraries
-# export PYTHONPATH=/Users/yoshikivazquezbaeza/git_sw/biom-format/lib/:$PYTHONPATH
-# export PATH=/Users/yoshikivazquezbaeza/git_sw/biom-format/bin:$PATH
-# SciPy installation path
-# export PYTHONPATH=/Users/yoshikivazquezbaeza/git_sw/scipy/lib:$PYTHONPATH
-# SPC
-# export PYTHONPATH="/Users/yoshikivazquezbaeza/git_sw/spc-0.3/build/lib":$PYTHONPATH
-# Pycluster path
-# export PYTHONPATH=/Users/yoshikivazquezbaeza/git_sw/pycluster:$PYTHONPATH
-# gdata
-# export PYTHONPATH=/Users/yoshikivazquezbaeza/svn_sw/gdata-2.0.17/build/lib:$PYTHONPATH
-# Personal microbiome delivery system, now known as my-microbes
-# export PYTHONPATH=/Users/yoshikivazquezbaeza/git_sw/my-microbes:$PYTHONPATH
-# export PATH=/Users/yoshikivazquezbaeza/git_sw/my-microbes/scripts:${PATH}
-# The Emperor project
-# export PYTHONPATH=/Users/yoshikivazquezbaeza/git_sw/emperor:$PYTHONPATH
-# export PATH=/Users/yoshikivazquezbaeza/git_sw/emperor/scripts:$PATH
-
-# Platypus Conquistador
-# export PYTHONPATH=/Users/yoshikivazquezbaeza/git_sw/platypus:${PYTHONPATH}
-# export PATH=/Users/yoshikivazquezbaeza/git_sw/platypus/scripts:$PATH
-
-# QIIME-Galaxy integration project
-# export PATH=/Users/yoshikivazquezbaeza/git_sw/qiime-galaxy/scripts:$PATH
-# export PYTHONPATH=/Users/yoshikivazquezbaeza/git_sw/qiime-galaxy/lib:$PYTHONPATH
-
-# PyEntropy
-# export PYTHONPATH=/Users/yoshikivazquezbaeza/git_sw/pyentropy/build/lib:${PYTHONPATH}
-
-# American Gut
-# export PYTHONPATH=/Users/yoshikivazquezbaeza/git_sw/American-Gut/:${PYTHONPATH}
-# export PATH=/Users/yoshikivazquezbaeza/git_sw/American-Gut/scripts:${PATH}
 
 # # *QIIME Dependencies*
 # Blast PATH for the scripts version 2.2.22
@@ -74,7 +21,7 @@ export RDP_JAR_PATH=/Users/yoshikivazquezbaeza/svn_sw/dep/rdp_classifier_2.2/rdp
 # P-Placer, Guppy and Taxtastic
 export PATH=/Users/yoshikivazquezbaeza/svn_sw/dep/pplacer-v1.1.alpha13-Darwin-10.8.0:$PATH
 # Fast Tree
-#export PATH=/Users/yoshikivazquezbaeza/svn_sw/dep/FastTree:$PATH
+export PATH=/Users/yoshikivazquezbaeza/svn_sw/dep/FastTree:$PATH
 # UCLUST
 export PATH=/Users/yoshikivazquezbaeza/svn_sw/dep/uclust:$PATH
 # CDBTools
@@ -160,6 +107,25 @@ fi
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+#***************************************
+#**Shortcuts for remote login sessions**
+#***************************************
+
+# MBL cluster
+alias lostmps='ssh yvbaeza@evol5.mbl.edu'
+
+# E-vident virtual machine
+export EVIDENT=evident@192.168.56.101
+alias loevdnt='ssh evident@192.168.56.101'
+
+# antares
+export ANTARES=ib08yvb@antares.dci.uia.mx
+alias loantar='ssh ib08yvb@antares.dci.uia.mx'
+
+# git @ aldebaran
+export ALDEBARAN=git@aldebaran.dci.uia.mx
+alias loaldeb='ssh git@aldebaran.dci.uia.mx'
+
 # MacPorts Installer addition on 2012-08-15_at_09:58:10: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
@@ -167,11 +133,10 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # enable and disable git convenience functions ... not sure they will stay
 function egit (){
 	function get_git_branch () {
-		git rev-parse --abbrev-ref HEAD 2> /dev/null
+		command git rev-parse --abbrev-ref HEAD 2> /dev/null
 	}
 	# git specific usage for branching
 	function branch_separator () {
-		#git name-rev HEAD 2> /dev/null | sed 's#HEAD\ \(.*\)#(git::\1) #'
 		if [[ -n $(get_git_branch) ]]
 		then
 		echo "@"
@@ -184,6 +149,8 @@ function dgit (){
 	export PS1=${TMP_GIT_PS1}
 }
 egit;
+alias git='hub'
+
 
 # show all colors in xterm-256
 #( x=`tput op` y=`printf %$((${COLUMNS}-6))s`;for i in {0..256};do o=00$i;echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;done; )
@@ -192,6 +159,8 @@ egit;
 if [ -f ~/.git-completion.bash ]; then
     . ~/.git-completion.bash
 fi
+
+#source /Users/yoshikivazquezbaeza/qiime_software/activate.sh
 
 # VirtualEnv
 source /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh

@@ -12,8 +12,6 @@
 
 " When started as "evim", evim.vim will already have done these settings.
 
-colorscheme desert
-
 if v:progname =~? "evim"
   finish
 endif
@@ -21,6 +19,15 @@ endif
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle "gmarik/vundle"
+Bundle "davidhalter/jedi-vim"
+Bundle "bling/vim-airline"
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -31,8 +38,8 @@ else
   set backup		" keep a backup file
 endif
 set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
+set ruler		    " show the cursor position all the time
+set showcmd		    " display incomplete commands
 set incsearch		" do incremental searching
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
@@ -99,9 +106,6 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-" XDon'tX wrap lines, I'm never not wrapping lines, horrible thing to do"
-"set nowrap"
-
 set smartindent
 set tabstop=4
 set shiftwidth=4
@@ -109,5 +113,34 @@ set expandtab
 
 " psp files will be highlighted as python files "
 autocmd BufRead,BufNewFile *.psp set filetype=python
+autocmd BufRead,BufNewFile *.less set filetype=css
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 
+colorscheme desert
+
+" Searches for all-lower-case letters match upper-case as well.
+set ignorecase
+
+" If your search word contains upper case, match exact case for all
+" letters.
+set smartcase
+
+" Originally taken from @SantiagoTorres' .vimrc
+if exists('+colorcolumn')
+    set colorcolumn=80
+else
+    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+
+" Set [TAB] to cycle through the auto-complete possibilities of a  word you're
+" typing.  The possibilities come from other words in the current file and
+" other files you're editing. This also seems to work very well with jedi's
+" autocompletion. Originally taken from @ElBrogrammer's .vimrc
+function! CleverTab()
+   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+      return "\<Tab>"
+   else
+      return "\<C-N>"
+endfunction
+
+execute pathogen#infect()
